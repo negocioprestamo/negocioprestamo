@@ -4,6 +4,8 @@
     $email = "";
     $errors = array();
 
+    $typeUsers = "";
+
     // connecto to the database
     $db = mysqli_connect('localhost', 'hlorenzo', '69ae1147b5', 'registration');
 
@@ -13,7 +15,7 @@
         $email = mysqli_real_escape_string($db, $_POST['email']);
         $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
         $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
-        
+
         // ensure that form fields are filled properly
         if(empty($username)) {
             array_push($errors, "* Se requiere el nombre de usuario"); 
@@ -28,11 +30,26 @@
             array_push($errors, "* Las contraseña no son iguales");
         }
 
+        // verificar el tipo de usuario
+        switch(true)
+        {
+            case (isset($_POST[prestamista])):
+                $typeUsers = "1";
+                break;
+            case (isset($_POST[prestatario])):
+                $typeUsers = "2";
+                break;
+            default: 
+                array_push($errors, "* Favor seleccionar Prestamista o Prestatario segun corresponda");
+                $typeUsers = "0";
+                break;
+        }
+
         // if there are no errors, save user to database
         if(count($errors) == 0) {
             $password = md5($password_1); // encrypt password before storing in database (for security)
-            $sql = "INSERT INTO users (username, email, password) 
-                        VALUES ('$username', '$email', '$password')";
+            $sql = "INSERT INTO users (username, email, password, typeUser) 
+                        VALUES ('$username', '$email', '$password', '$typeUsers')";
 
             mysqli_query($db, $sql);
             $_SESSION['username'] = $username;
