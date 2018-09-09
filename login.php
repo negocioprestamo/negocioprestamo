@@ -1,5 +1,6 @@
-<?php include('server.php'); ?>
+<?php include('server.php'); //prueba2 ?> 
 <!DOCTYPE html>
+
 <html>
     <head>
         <title>Registrar usuario prestamista o prestatario</title>    
