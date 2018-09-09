@@ -1,4 +1,4 @@
-<?php include('server.php'); 
+<?php include('server.php'); //prueba
 
     // if user is not logged in, they cannot access this page
     if (empty($_SESSION['username'])) {
@@ -8,14 +8,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Registrar usuario prestamista o prestatario</title>    
+        <title>Registrar usuario prestamista o prestatario</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-    </head>    
+    </head>
     <body>
         <div class="header">
             <h2>Home Page</h2>
         </div>
-        <div class="content">  
+        <div class="content">
             <?php if (isset($_SESSION['success'])): ?>
                 <div class="error success">
                     <h3>
@@ -30,7 +30,7 @@
             <?php if (isset($_SESSION["username"])): ?>
                 <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
                 <p><a href="index.php?logout='1'" style="color: red;">Logout</a></p>
-            <?php endif ?>    
+            <?php endif ?>
         </div>
     </body>
 </html>
