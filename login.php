@@ -1,18 +1,18 @@
-<?php include('server.php'); //prueba2 ?> 
+<?php include('server.php'); //prueba3 ?> 
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title>Registrar usuario prestamista o prestatario</title>    
+        <title>Registrar usuario prestamista o prestatario</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-    </head>    
+    </head>
     <body>
         <div class="header">
             <h2>Ingresar</h2>
         </div>
 
         <form method="post" action="login.php">
-            <!-- display validation errors here -->    
+            <!-- display validation errors here -->
             <?php include('errors.php'); ?>
             <div class="input-group">
                 <label>Nombre de usuario</label>
